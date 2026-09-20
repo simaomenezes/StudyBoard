@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: studyboard-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: studyboard
+      POSTGRES_PASSWORD: studyboard
+      POSTGRES_DB: studyboard
+    ports:
+      - "5432:5432"
+    volumes:
+      - studyboard-pgdata:/var/lib/postgresql/data
+
+volumes:
+  studyboard-pgdata:
